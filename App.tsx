@@ -12,10 +12,11 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
   View,
 } from 'react-native';
+
+import { Text } from 'react-native-elements';
 
 import {
   Colors,
@@ -54,7 +55,9 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <VideoPlayer />
+    <SafeAreaView>
+      <Text>Hi</Text>
+    </SafeAreaView>
   );
 }
 
