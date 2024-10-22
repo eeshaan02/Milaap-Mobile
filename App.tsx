@@ -14,9 +14,11 @@ import {
   StyleSheet,
   useColorScheme,
   View,
+  Dimensions
 } from 'react-native';
 
 import { Text } from 'react-native-elements';
+import LottieView from 'lottie-react-native';
 
 import {
   Colors,
@@ -27,6 +29,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Video, {VideoRef} from 'react-native-video';
+const { width, height } = Dimensions.get('window')
 
 const VideoPlayer = () => {
  const videoRef = useRef<VideoRef>(null);
@@ -47,6 +50,17 @@ const VideoPlayer = () => {
  )
 }
 
+function Animation() {
+  return (
+    <LottieView 
+      source={require('./feedback.json')} 
+      style={styles.feedbackAnimation}
+      autoPlay 
+      loop
+    />
+  );
+}
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -55,9 +69,7 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView>
-      <Text>Hi</Text>
-    </SafeAreaView>
+    <Animation/>
   );
 }
 
@@ -68,6 +80,9 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+  },
+  feedbackAnimation: {
+    height: (height / 640) * 140,
   },
   sectionContainer: {
     marginTop: 32,
